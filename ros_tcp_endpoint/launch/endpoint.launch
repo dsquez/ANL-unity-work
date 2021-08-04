@@ -1,0 +1,6 @@
+<launch>
+    <rosparam file="$(find ros_tcp_endpoint)/config/params.yaml" command="load"/>
+    <node name="server_endpoint" pkg="ros_tcp_endpoint" type="anl_server_endpoint.py" args="--wait" output="screen" respawn="true" />
+    <node name="service_client" pkg="ros_tcp_endpoint" type="anl_service_client.py" output="screen"/>
+    <include file="$(find ur5_e_moveit_config)/launch/demo.launch" />
+</launch>
